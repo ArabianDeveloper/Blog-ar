@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block body %}
+  
+
+
+<div class="container my-5">
+    <div class="border p-4 mb-5">
+        <legend class="border-bottom pb-1 mb-3">تعديل الملف الشخصي</legend>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form userform %}
+            {% bootstrap_form profileform %}
+            <input class="btn btn-secondary mt-4" type="submit" value="حفظ">
+        </form>
+    </div>
+</div>
+{% endblock body %}

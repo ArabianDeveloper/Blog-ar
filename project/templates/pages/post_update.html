@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block body %}
+  
+
+
+<div class="container my-5">
+    <div class="border p-4 mb-5">
+        <legend class="border-bottom pb-1 mb-3">تحرير التدوينة</legend>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input class="btn btn-secondary mt-4" type="submit" value="تحديث">
+        </form>
+    </div>
+</div>
+
+{% endblock body %}

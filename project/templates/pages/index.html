@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container my-5">
+    <div class="alert alert-">
+        
+    </div>
+
+
+    {% if blogs %}
+        {% for blog in blogs %}
+            <div class="border p-3 mb-3">
+                <img class="img-fluid rounded-circle border m-2" style="width: 70px; height:70px;"
+                    src="{{blog.owner.profile.image.url}}" alt="صورة الناشر">
+                <span class="text-secondary">{{blog.post_at|date:'d/m/o'}}</span>
+                <h3><a class="text-dark" href="{% url 'detail' blog.id %}">{{blog.title}}</a></h3>
+                <p>{{blog.content|truncatechars:'100'|safe}}</p>
+            </div>
+        {% endfor %}
+        {% if blogs.has_other_pages %}
+            <div class="pt-3 mt-4 mb-5 text-center">
+                {% if blogs.has_next %}
+                    <a class="btn btn-secondary bg-secondary" href="?page={{blogs.next_page_number}}">التالي</a>
+                {% else %}
+                    <a class="btn btn-secondary bg-secondary disabled" href="">التالي</a>
+                {% endif %}
+                
+                <span class="pr-4 pl-4">صفحة {{blogs.number}} من {{blogs.paginator.count}}</span>
+            
+                {% if blogs.has_previous %}
+                    <a class="btn btn-secondary bg-secondary" href="?page={{blogs.previous_page_number}}">السابق</a>
+                {% else %}
+                    <a class="btn btn-secondary bg-secondary disabled" href="">السابق</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="border p-3 mb-3">
+            <h3>لا يوجد تدوينات، إذا كان لديك حساب مسجل من قبل يمكنك <a href="{% url 'login' %}">تسجيل الدخول</a> والقيام بنشر
+                أول تدوينة في الموقع.</h3>
+        </div>
+    {% endif %}
+</div>
+{% endblock body %}
+
+
+
+
+

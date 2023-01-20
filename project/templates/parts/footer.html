@@ -1,0 +1,50 @@
+{% load static %}
+<footer class="bg-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md">
+                <div class="card-group mt-3">
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">من أنا</h3>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة" width="100px">
+                            </div>
+                            <p>محمد الشعيلي مالك فريق CMWG ادرس في المرحلة الثانوية ومهتم بمجال تطوير الويب و برمجة التطبيقات</p>
+
+                        </div>
+                    </div>
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">مواقع هامة</h3>
+                        <div class="card-body">
+                            <ul>
+                                <li><a class="text-dark" href="https://www.python.org/doc/">وثائق بايثون</a></li>
+                                <li><a class="text-dark" href="https://docs.djangoproject.com/en/2.2/">وثائق دجانجو</a></li>
+                                <li><a class="text-dark" href="https://developer.mozilla.org/">توثيق MDN</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card m-3">
+                        <h3 class="card-title text-center border-bottom p-2 m-3">وسائل التواصل الاجتماعي</h3>
+                        <h4 class="card-body text-center">
+                            <a class="text-primary" href="https://www.facebook.com/12wmwm34"><i class="fab fa-facebook"></i></a>
+                            <a class="text-info" href="https://twitter.com/ZbxzKnsFHYqRjsW"><i class="fab fa-twitter"></i></a>
+                            <a class="text-warning" href="https://www.instagram.com/12wmwm342021"><i class="fab fa-instagram"></i></a>
+                            <a class="text-danger" href="https://www.youtube.com/channel/UCPI-x9c8U7pFEZmpNu6o3QA"><i class="fab fa-youtube"></i></a>
+                            <a class="text-info" href="https://t.me/MmMm_9288"><i class="fab fa-telegram"></i></a>
+                            <a class="text-primary" href="https://www.linkedin.com/in/mohammed-al-shoaili-9b3884219"><i class="fab fa-linkedin"></i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-md text-center">
+                <small class="text-light">&copy; <span id="date-year"></span> جميع الحقوق محفوظة | بواسطة CMWG</small>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('date-year').innerText = new Date().getFullYear();
+</script>

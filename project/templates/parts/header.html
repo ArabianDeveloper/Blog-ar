@@ -1,0 +1,34 @@
+{% load static %}
+<header>
+    <!--Start Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة" width="30px">
+            مدونة</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">الرئيسية <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %} 
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'new' %}">تدوينة جديدة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:profile' %}">الملف الشخصي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">تسجيل خروج</a></li>
+                </ul>
+            {% else %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">تسجيل دخول</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:signup' %}">تسجيل</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
+    <!--End Navbar-->
+</header>

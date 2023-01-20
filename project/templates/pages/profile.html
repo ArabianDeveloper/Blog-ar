@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="border py-2 mb-5">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img class="img-fluid rounded-circle border m-2" style="width: 120px; height:120px;" src="{{profile.image.url}}" alt="">
+                <div class="mt-3">
+                    <a class="btn btn-secondary bg-secondary" href="{% url 'accounts:profile_edit' %}"><i class="fas fa-pen fa-xs"></i> تحرير</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4"></h2>
+                <p class="font-weight-bold">الاسم: {{profile.user.username}} <span class="font-weight-normal"></span></p>
+                <p class="font-weight-bold">البريد الإلكتروني: <a href="mailto:{{profile.user.email}}">{{profile.user.email}}</a><span class="font-weight-normal"></span></p>
+                <p class="font-weight-bold">الدولة: {{profile.city}}<span class="font-weight-normal"></span></p>
+                <p class="font-weight-bold">رقم الهاتف: <a href="tel:{{profile.phone_number}}">{{profile.phone_number}}</a><span class="font-weight-normal"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col">
+            <h3 class="pb-3 mb-4 mx-3">عدد التدوينات التي دونتها</h3>
+            <h4 class="bg-secondary text-center py-4 text-light">
+                {{user.Blogs.count}}
+            </h4>
+            
+            {% if user.Blogs.all %}
+                <h3 class=" mb-4 pb-3 mt-5 mx-3">تدويناتي</h3>
+                
+                {% for blog in user.Blogs.all %}
+                    <ul class="">
+                        <a class="text-dark" href="{% url 'detail' blog.id %}">{{blog.title}}</a>
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <h4 class="text-center mb-5">لا يوجد تدوينات</h4>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
